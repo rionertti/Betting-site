@@ -1,138 +1,277 @@
-/* Variables */
-:root {  --mainColor: #0c314d;  --hoverColor: #1a5684;
-  --white: #fff;  --primaryColor: #668a28;}
-/* Global Rules */
-
-/* Mob screen */
+:root {
+  --mainColor: #0c314d;
+  --hoverColor: #1a5684;
+  --white: #fff;
+  --primaryColor: #668a28;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: var(--mainColor);
+  color: var(--white);
+}
+ul {
+  list-style: none;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.container {
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
 @media (min-width: 576px) {
- 
-/* Small Screen */
+  .container {
+    width: 540px;
+  }
+}
 @media (min-width: 768px) {
-  
-/* Medium Screen */
+  .container {
+    width: 720px;
+  }
+}
+
 @media (min-width: 992px) {
- 
-/* Large Screen */
+  .container {
+    width: 960px;
+  }
+}
 @media (min-width: 1200px) {
-  .container {    width: 1140px;  }
+  .container {
+    width: 1140px;
+  }
 }
-/* Very Large Screen */
+
 @media (min-width: 1400px) {
-  
+  .container {
+    width: 1320px;
+  }
 }
-/* header style */
-
-@media (max-width: 767px) {
-  
+.top-nav .container {
+  justify-content: space-between;
+  padding: 0px;
+  height: 6rem;
+  background-color: var(--white);
+  border-bottom: 2px solid var(--white);
+  position: relative;
 }
-
-@media (max-width: 991px) { }
-
-@media (max-width: 767px) {
-  
-
- 
-}
-@media (max-width: 767px) {
-  
-}
-
-@media (max-width: 767px) {
-  
-}
-
-@media (max-width: 767px) {  
-  
+.top-nav .burger {
+  display: none;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
- 
+  .top-nav .burger {
+    display: block;
+    color: var(--mainColor);
+  }
 }
 
-@media (max-width: 992px) {
-  
+.top-nav .left-nav {
+  width: 40%;
+  background-color: #174b73;
+  box-shadow: inset 0 50px 25px 15px #216ca6;
+  line-height: 1rem;
+  height: 100%;
 }
 
-@media (max-width: 992px) {
- 
+@media (max-width: 991px) {
+  .top-nav .left-nav {
+    width: 50%;
+  }
 }
 
-@media (max-width: 992px) {
+.top-nav .left-nav div {
+  width: 20%;
+  height: inherit;
+  border: 1px solid #ccc;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0, 3s ease, box-shadow 0.3s ease;
+}
+@media (max-width: 767px) {
+  .top-nav .left-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    height: 25rem;
+    top: 70%;
+    z-index: 4;
+  }
+
+  .top-nav .burger:hover ~ .left-nav {
+    display: flex;
+  }
+
+  .top-nav .left-nav div {
+    width: 100%;
+    height: 100%;
+  }
 }
 
+.top-nav .left-nav div:hover {
+  box-shadow: none;
+  background-color: blue;
+}
 
-/* landing style */
+.top-nav .left-nav > div:last-of-type {
+  flex-direction: column;
+  background-color: var(--primaryColor);
+  box-shadow: inset 0 50px 25px -25px #84b332;
+}
+
+.top-nav .left-nav > div:last-of-type:hover {
+  box-shadow: none;
+  background-color: #93c738;
+}
+
+.top-nav .left-nav > div:nth-child(4) {
+  background-color: #0e5d9a;
+  box-shadow: inset 0 50px 25px -25px #388acc;
+}
+
+.top-nav .left-nav > div:nth-child(4):hover {
+  background-color: #1f72ad;
+  box-shadow: none;
+}
+
+.top-nav .left-nav div:last-of-type i {
+  max-width: 100%;
+}
+.top-nav .left-nav div i {
+  font-size: 2rem;
+}
+
+.top-nav .left-nav .desk-top,
+.top-nav .left-nav .mobile,
+.top-nav .left-nav .telg {
+  position: relative;
+}
+
+.top-nav .left-nav .bet-app,
+.top-nav .left-nav .smart-phone,
+.top-nav .left-nav .telg-box {
+  position: absolute;
+  top: 7rem;
+  z-index: 1;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: var(--white);
+  overflow: auto;
+  display: none;
+}
+
+.top-nav .left-nav .bet-app {
+  min-width: 20rem;
+  height: 11rem;
+  left: 1.6rem;
+}
+
+.top-nav .left-nav .bet-app::before,
+.top-nav .left-nav .smart-phone::before,
+.top-nav .left-nav .telg-box::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 1.5rem;
+  border-color: transparent transparent var(--hoverColor) transparent;
+  bottom: -1.5rem;
+  z-index: 2;
+  left: 2rem;
+  display: none;
+}
+
+.top-nav .left-nav .desk-top:hover .bet-app,
+.top-nav .left-nav .desk-top::before {
+  display: block;
+}
+
+.top-nav .left-nav .smart-phone {
+  min-width: 15rem;
+  left: 1.6rem;
+  line-height: 2rem;
+}
+
+.top-nav .left-nav .mobile:hover .smart-phone,
+.top-nav .left-nav .mobile:hover::before {
+  display: block;
+}
+
+.top-nav .left-nav .telg {
+  min-width: 12rem;
+  height: 6rem;
+  left: 1.6rem;
+}
+
+.top-nav .left-nav .telg.hover .telg-box,
+.top-nav .left-nav .telg.hover::before {
+  display: block;
+}
+
+.top-nav .right-nav {
+  width: 50%;
+  height: 100%;
+  justify-content: flex-end;
+  text-align: center;
+  background-color: #174b73;
+  box-shadow: inset 0 50px 25px -25px #216ca6;
+  font-size: 1.2rem;
+}
+
+.top-nav .right-nav > div {
+  width: 18%;
+  height: inherit;
+  border: 1px solid#ccc;
+  justify-content: space-evenly;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
 
 @media (max-width: 767px) {
+  .top-nav .right-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    height: 25rem;
+    top: 70%;
+    right: 0;
+    z-index: 4;
+  }
 
-}
+  .top-nav .burger:nth-child(3):hover ~ .right-nav {
+    display: flex;
+  }
+  .top-nav .right-nav div {
+    width: 100%;
+    height: 100%;
+  }
 
-@media (max-width: 767px) {
+  .top-nav .right-nav > div:hover {
+    box-shadow: none;
+    background-color: #1a5684;
+  }
 
-}
+  .top-nav .right-nav > div:nth-child(2) {
+    box-shadow: inset o 50px 25 px -25px #388ecc;
+    background-color: #0e5d9a;
+  }
 
-/* slider style */
-
-@media (max-width: 767px) {
-  
-}
-
-/* to navigate */
-
-/* slider animation position */
-
-/* live bets style */
-
-@media (max-width: 575px) {
-  
-}
-
-@media (max-width: 575px) {
-  
-}
-
-@media (max-width: 575px) {
-  
-@media (max-width: 575px) {
-  
-}
-
-/* live bets static style */
-
-@media (max-width: 992px) {
-  
-}
-
-@media (max-width: 992px) {
-  
-}
-
-/* static row style */
-@media (max-width: 992px) {
-  
-}
-
-/* sports book style */
-@media (max-width: 575px) {
-
-}
-
-@media (max-width: 575px) {
-  
-}
-/* usa static style */
-
-/* footer style */
-@media (max-width: 767px) {
-  
-
-}
-@media (max-width: 575px) {
-  
-@media (max-width: 767px) {
-  
-}
-
-@media (max-width: 767px) {
- 
+  .top-nav .right-nav > div:nth-child(2):hover {
+    box-shadow: none;
+    background-color: #1f72ad;
+  }
 }
